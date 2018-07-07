@@ -9,6 +9,12 @@
         Name: <%= astronaut.name %></br>
         Age: <%= astronaut.age %></br>
         Job: <%= astronaut.job %></br>
+        Time in Space: <%= astronaut.time_in_space %> units of time</br>
+        <ul>
+          Missions: <% astronaut.alphabetize_missions.each do |mission| %>
+            <li><%= mission.title%> <%= mission.trip_length %></li>
+          <% end %>
+        </ul>
       </li>
     <% end %>
   </ul>

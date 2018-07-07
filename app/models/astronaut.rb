@@ -4,6 +4,14 @@ class Astronaut < ApplicationRecord
   has_many :space_missions, through: :astronaut_space_missions
 
   def self.average_age
-    average(:age)
+    average(:age).floor
+  end
+
+  def alphabetize_missions
+    space_missions.order(:title)
+  end
+
+  def time_in_space
+    space_missions.sum(:trip_length)
   end
 end
