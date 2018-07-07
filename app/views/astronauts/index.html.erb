@@ -1,0 +1,13 @@
+<h1>All Astronauts</h1>
+
+<p>
+<ul>
+  <% @astronauts.each do |astronaut| %>
+    <li>
+      Name: <%= astronaut.name %></br>
+      Age: <%= astronaut.age %></br>
+      Job: <%= astronaut.job %></br>
+    </li>
+  <% end %>
+</ul>
+</p>
