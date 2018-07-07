@@ -14,14 +14,20 @@ describe Astronaut, type: :model do
       expect(Astronaut.average_age).to eq(40)
     end
     it 'should alphabetize space missions by title' do
+      astro = Astronaut.create(name: 'Thor', age: 40, job: 'Just There for Fun')
+      space_mission_a = astro.space_missions.create(title: 'Pluto Ride', trip_length: 900)
+      space_mission_b = astro.space_missions.create(title: 'Just Checking Things Out', trip_length: 404)
+      space_mission_c = astro.space_missions.create(title: 'Another Round of Checking Things Out', trip_length: 10)
 
-
-      expect(Astronaut.average_age).to eq(40)
+      expect(astro.alphabetize_missions.first.title).to eq('Another Round of Checking Things Out')
     end
     it 'should calculate the total time in space of the astronaut' do
+      astro = Astronaut.create(name: 'Thor', age: 40, job: 'Just There for Fun')
+      space_mission_a = astro.space_missions.create(title: 'Pluto Ride', trip_length: 900)
+      space_mission_b = astro.space_missions.create(title: 'Just Checking Things Out', trip_length: 404)
+      space_mission_c = astro.space_missions.create(title: 'Another Round of Checking Things Out', trip_length: 10)
 
-
-      expect(Astronaut.average_age).to eq(40)
+      expect(astro.time_in_space).to eq(1314)
     end
   end
 end
