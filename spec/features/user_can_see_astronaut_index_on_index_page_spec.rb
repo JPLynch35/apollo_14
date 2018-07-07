@@ -23,9 +23,7 @@ describe 'a visitor' do
 
       avg_age = Astronaut.average(:age)
 
-      within('section') do
         expect(page).to have_content("Average Age: #{avg_age}")
-      end
     end
   end
 end
